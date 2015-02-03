@@ -36,7 +36,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -103,7 +102,7 @@ public class MovieMeterApiTest {
      *
      * @throws com.omertron.moviemeter.MovieMeterException
      */
-    @Ignore
+    @Test
     public void testGetFilm_String() throws MovieMeterException {
         LOG.info("getFilm (IMDB ID)");
 
@@ -137,7 +136,7 @@ public class MovieMeterApiTest {
      *
      * @throws com.omertron.moviemeter.MovieMeterException
      */
-    @Ignore
+    @Test
     public void testSearch() throws MovieMeterException {
         LOG.info("search");
         String query = "Iron Man";

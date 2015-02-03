@@ -1,7 +1,0 @@
-com\omertron\moviemeter\model\Actor.class
-com\omertron\moviemeter\model\Poster.class
-com\omertron\moviemeter\MovieMeterApi.class
-com\omertron\moviemeter\model\AbstractJsonMapping.class
-com\omertron\moviemeter\MovieMeterException.class
-com\omertron\moviemeter\model\MMFilm.class
-com\omertron\moviemeter\model\SearchResult.class
