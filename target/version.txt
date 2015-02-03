@@ -1,0 +1,4 @@
+MovieMeter API
+Build Date: 2015-02-03 15:03:37
+Version: 1.0-SNAPSHOT
+Git-SHA: ${buildNumber}
