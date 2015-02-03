@@ -21,10 +21,10 @@ package com.omertron.moviemeter;
 
 import com.omertron.moviemeter.model.MMFilm;
 import com.omertron.moviemeter.model.SearchResult;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import java.util.Properties;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.After;
@@ -33,6 +33,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -47,7 +48,8 @@ import org.slf4j.LoggerFactory;
 public class MovieMeterApiTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(MovieMeterApiTest.class);
-    private static final String API_KEY = "7a157035cf7797e774b23cf7a4876dbc";
+    private static final String PROP_FIlENAME = "testing.properties";
+    private static String API_KEY;
 
     private static MovieMeterApi api;
     private static CloseableHttpClient httpClient;
@@ -63,6 +65,23 @@ public class MovieMeterApiTest {
         // This must be the first statement in the beforeClass method
         TestLogger.Configure();
         httpClient = HttpClients.createDefault();
+
+        Properties props = new Properties();
+        File f = new File(PROP_FIlENAME);
+        if (f.exists()) {
+            LOG.info("Loading properties from '{}'", PROP_FIlENAME);
+            TestLogger.loadProperties(props, f);
+
+            API_KEY = props.getProperty("API_Key");
+        } else {
+            LOG.info("Property file '{}' not found, creating dummy file.", PROP_FIlENAME);
+
+            props.setProperty("API_Key", "INSERT_YOUR_KEY_HERE");
+
+            TestLogger.saveProperties(props, f, "Properties file for tests");
+            fail("Failed to get key information from properties file '" + PROP_FIlENAME + "'");
+        }
+
         api = new MovieMeterApi(API_KEY, httpClient);
     }
 
@@ -107,7 +126,6 @@ public class MovieMeterApiTest {
 
         // Search for Iron Man
         MMFilm result = api.getFilm(ID_IRON_MAN);
-        LOG.info("{}", ToStringBuilder.reflectionToString(result, ToStringStyle.MULTI_LINE_STYLE));
 
         assertNotNull("No movie returned", result);
         assertEquals("Wrong Movie ID returned", ID_IRON_MAN, result.getId());
