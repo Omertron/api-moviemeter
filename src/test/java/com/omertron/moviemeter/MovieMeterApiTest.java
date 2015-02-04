@@ -19,7 +19,7 @@
  */
 package com.omertron.moviemeter;
 
-import com.omertron.moviemeter.model.MMFilm;
+import com.omertron.moviemeter.model.FilmInfo;
 import com.omertron.moviemeter.model.SearchResult;
 import java.io.File;
 import java.io.IOException;
@@ -107,7 +107,7 @@ public class MovieMeterApiTest {
         LOG.info("getFilm (IMDB ID)");
 
         // Search for Iron Man
-        MMFilm result = api.getFilm(IMDB_IRON_MAN);
+        FilmInfo result = api.getFilm(IMDB_IRON_MAN);
 
         assertNotNull("No movie returned", result);
         assertEquals("Wrong Movie ID returned", ID_IRON_MAN, result.getId());
@@ -124,7 +124,7 @@ public class MovieMeterApiTest {
         LOG.info("getFilm (MovieMeter ID)");
 
         // Search for Iron Man
-        MMFilm result = api.getFilm(ID_IRON_MAN);
+        FilmInfo result = api.getFilm(ID_IRON_MAN);
 
         assertNotNull("No movie returned", result);
         assertEquals("Wrong Movie ID returned", ID_IRON_MAN, result.getId());

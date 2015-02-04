@@ -21,7 +21,7 @@ package com.omertron.moviemeter;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.omertron.moviemeter.model.MMFilm;
+import com.omertron.moviemeter.model.FilmInfo;
 import com.omertron.moviemeter.model.SearchResult;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -95,8 +95,8 @@ public class MovieMeterApi {
      * @return Film object with the details
      * @throws MovieMeterException
      */
-    public MMFilm getFilm(String imdbId) throws MovieMeterException {
-        return readJsonObject(buildIdUrl(imdbId), MMFilm.class);
+    public FilmInfo getFilm(String imdbId) throws MovieMeterException {
+        return readJsonObject(buildIdUrl(imdbId), FilmInfo.class);
     }
 
     /**
@@ -106,8 +106,8 @@ public class MovieMeterApi {
      * @return Film object with the details
      * @throws MovieMeterException
      */
-    public MMFilm getFilm(int movieMeterId) throws MovieMeterException {
-        return readJsonObject(buildIdUrl(movieMeterId), MMFilm.class);
+    public FilmInfo getFilm(int movieMeterId) throws MovieMeterException {
+        return readJsonObject(buildIdUrl(movieMeterId), FilmInfo.class);
     }
 
     /**

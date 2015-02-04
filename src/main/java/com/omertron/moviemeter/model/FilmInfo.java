@@ -27,7 +27,7 @@ import java.util.List;
  *
  * @author Stuart.Boston
  */
-public class MMFilm extends AbstractJsonMapping {
+public class FilmInfo extends AbstractJsonMapping {
 
     private static final long serialVersionUID = 1L;
     @JsonProperty("id")
