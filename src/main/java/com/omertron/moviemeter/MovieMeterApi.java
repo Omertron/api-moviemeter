@@ -73,7 +73,7 @@ public class MovieMeterApi {
      * @param httpClient An Apache Commons HTTP Client
      * @throws MovieMeterException
      */
-    MovieMeterApi(String apiKey, CloseableHttpClient httpClient) throws MovieMeterException {
+    public MovieMeterApi(String apiKey, CloseableHttpClient httpClient) throws MovieMeterException {
         if (StringUtils.isBlank(apiKey)) {
             throw new MovieMeterException(ApiExceptionType.AUTH_FAILURE, "API Key must be provided");
         }
