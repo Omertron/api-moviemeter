@@ -151,7 +151,7 @@ public class MovieMeterApi {
         url.append(MM_API);
         url.append(apiKey);
 
-        LOG.info("MovieMeter URL: {}", url);
+        LOG.trace("MovieMeter URL: {}", url);
         return url.toString();
     }
 
@@ -168,7 +168,7 @@ public class MovieMeterApi {
         url.append(MM_API);
         url.append(apiKey);
 
-        LOG.info("MovieMeter URL: {}", url);
+        LOG.trace("MovieMeter URL: {}", url);
         return url.toString();
     }
 
