@@ -25,7 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
-import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -51,7 +51,7 @@ public class MovieMeterApiTest {
     private static String API_KEY;
 
     private static MovieMeterApi api;
-    private static CloseableHttpClient httpClient;
+    private static HttpClient httpClient;
 
     private static final int ID_IRON_MAN = 41789;
     private static final String IMDB_IRON_MAN = "tt0371746";
@@ -86,7 +86,6 @@ public class MovieMeterApiTest {
 
     @AfterClass
     public static void tearDownClass() throws IOException {
-        httpClient.close();
     }
 
     @Before

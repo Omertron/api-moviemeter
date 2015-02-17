@@ -29,8 +29,8 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.protocol.HTTP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +50,7 @@ public class MovieMeterApi {
     // The provided API KEY
     private String apiKey;
     // The HTTP Client to use
-    private CloseableHttpClient httpClient;
+    private HttpClient httpClient;
     // Base URL
     private static final String MM_URL = "http://www.moviemeter.nl/api/film/";
     private static final String MM_API = "&api_key=";
@@ -73,7 +73,7 @@ public class MovieMeterApi {
      * @param httpClient An Apache Commons HTTP Client
      * @throws MovieMeterException
      */
-    public MovieMeterApi(String apiKey, CloseableHttpClient httpClient) throws MovieMeterException {
+    public MovieMeterApi(String apiKey, HttpClient httpClient) throws MovieMeterException {
         if (StringUtils.isBlank(apiKey)) {
             throw new MovieMeterException(ApiExceptionType.AUTH_FAILURE, "API Key must be provided");
         }
