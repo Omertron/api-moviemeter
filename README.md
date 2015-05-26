@@ -5,9 +5,10 @@ Author: Stuart Boston (Omertron AT Gmail DOT com)
 
 This API uses the [MovieMeter.nl API](http://wiki.moviemeter.nl/index.php/API)
 
-Originally written for use by Yet Another Movie Jukebox [(YAMJ)](http://code.google.com/p/moviejukebox/)
+Originally written for use by YetAnotherMovieJukebox ([YAMJv2](https://github.com/YAMJ/yamj-v2) & [YAMJv3](https://github.com/YAMJ/yamj-v3)), but anyone can feel free to use it for other projects as well.
 
-But anyone can use it for other projects as well.
+[![Build Status](http://jenkins.omertron.com/job/API-MovieMeter/badge/icon)](http://jenkins.omertron.com/job/API-MovieMeter)
+
 ***
 
 Project Logging
