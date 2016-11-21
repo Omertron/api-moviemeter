@@ -53,7 +53,7 @@ public class MovieMeterApi {
     private HttpClient httpClient;
     // Base URL
     private static final String MM_URL = "http://www.moviemeter.nl/api/film/";
-    private static final String MM_API = "&api_key=";
+    private static final String MM_API = "?api_key=";
     private static final String MM_QUERY = "?q=";
     // Constants
     private static final String URL_ENCODING = "UTF-8";
