@@ -53,8 +53,10 @@ public class MovieMeterApi {
     private HttpClient httpClient;
     // Base URL
     private static final String MM_URL = "http://www.moviemeter.nl/api/film/";
-    private static final String MM_API = "?api_key=";
-    private static final String MM_QUERY = "?q=";
+    private static final String MM_API = "api_key=";
+    private static final String MM_QUERY = "q=";
+    private static final Character MM_PARAM_AMP = '&';
+    private static final Character MM_PARAM_QST = '?';
     // Constants
     private static final String URL_ENCODING = "UTF-8";
     private static final int HTTP_STATUS_300 = 300;
@@ -146,10 +148,9 @@ public class MovieMeterApi {
      * @return URL
      */
     private String buildIdUrl(String id) {
-        StringBuilder url = new StringBuilder(MM_URL);
-        url.append(id);
-        url.append(MM_API);
-        url.append(apiKey);
+        StringBuilder url = new StringBuilder(MM_URL)
+                .append(id)
+                .append(MM_PARAM_QST).append(MM_API).append(apiKey);
 
         LOG.trace("MovieMeter URL: {}", url);
         return url.toString();
@@ -162,11 +163,9 @@ public class MovieMeterApi {
      * @return URL
      */
     private String buildSearchUrl(String query) {
-        StringBuilder url = new StringBuilder(MM_URL);
-        url.append(MM_QUERY);
-        url.append(encoder(query));
-        url.append(MM_API);
-        url.append(apiKey);
+        StringBuilder url = new StringBuilder(MM_URL)
+                .append(MM_PARAM_QST).append(MM_QUERY).append(encoder(query))
+                .append(MM_PARAM_AMP).append(MM_API).append(apiKey);
 
         LOG.trace("MovieMeter URL: {}", url);
         return url.toString();
